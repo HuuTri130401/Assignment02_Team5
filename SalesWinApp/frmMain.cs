@@ -72,7 +72,7 @@ namespace SalesWinApp
         {
             if (!CheckExistForm("frmOrders"))
             {
-                frmOrders frm = new frmOrders() { isAdmin = this.isAdmin };
+                frmOrders frm = new frmOrders() { IsAdmin = this.isAdmin };
                 frm.Show();
             }
             else ActiveChildForm("frmOrders");
