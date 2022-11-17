@@ -24,7 +24,7 @@ namespace SalesWinApp
         //    if (!CheckExistForm("frmMembers"))
         //    {
         //        frmMembers frm = new frmMembers() { IsAdmin = this.isAdmin };
-                
+
         //        frm.Show();
         //    }
         //    else ActiveChildForm("frmMembers");
@@ -62,21 +62,31 @@ namespace SalesWinApp
             if (!CheckExistForm("frmProducts"))
             {
                 frmProducts frm = new frmProducts() { IsAdmin = this.isAdmin };
-                
+
                 frm.Show();
             }
             else ActiveChildForm("frmProducts");
         }
 
-        //private void orderToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    if (!CheckExistForm("frmOrders"))
-        //    {
-        //        frmOrders frm = new frmOrders() { IsAdmin = this.isAdmin };
-                
-        //        frm.Show();
-        //    }
-        //    else ActiveChildForm("frmOrders");
-        //}
+        private void orderToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (!CheckExistForm("frmOrders"))
+            {
+                frmOrders frm = new frmOrders() { isAdmin = this.isAdmin };
+                frm.Show();
+            }
+            else ActiveChildForm("frmOrders");
+        }
     }
+
+    //private void orderToolStripMenuItem_Click(object sender, EventArgs e)
+    //{
+    //    if (!CheckExistForm("frmOrders"))
+    //    {
+    //        frmOrders frm = new frmOrders() { IsAdmin = this.isAdmin };
+
+    //        frm.Show();
+    //    }
+    //    else ActiveChildForm("frmOrders");
+    //}
 }
