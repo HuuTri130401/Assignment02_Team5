@@ -56,10 +56,10 @@
             // 
             // memberToolStripMenuItem
             // 
-            this.memberToolStripMenuItem.Name = "memberToolStripMenuItem";
-            this.memberToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.memberToolStripMenuItem.Text = "Member";
-            this.memberToolStripMenuItem.Click += new System.EventHandler(this.memberToolStripMenuItem_Click);
+            //this.memberToolStripMenuItem.Name = "memberToolStripMenuItem";
+            //this.memberToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            //this.memberToolStripMenuItem.Text = "Member";
+            //this.memberToolStripMenuItem.Click += new System.EventHandler(this.memberToolStripMenuItem_Click);
             // 
             // productToolStripMenuItem
             // 
@@ -70,10 +70,10 @@
             // 
             // orderToolStripMenuItem
             // 
-            this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
-            this.orderToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.orderToolStripMenuItem.Text = "Order";
-            this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click);
+            //this.orderToolStripMenuItem.Name = "orderToolStripMenuItem";
+            //this.orderToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            //this.orderToolStripMenuItem.Text = "Order";
+            //this.orderToolStripMenuItem.Click += new System.EventHandler(this.orderToolStripMenuItem_Click);
             // 
             // frmMain
             // 
