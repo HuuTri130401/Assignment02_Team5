@@ -29,6 +29,7 @@ namespace MyStoreWinApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.lbLogin = new System.Windows.Forms.Label();
             this.lbUsername = new System.Windows.Forms.Label();
@@ -37,6 +38,10 @@ namespace MyStoreWinApp
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLog = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.errUsername = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errPassword = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errUsername)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPassword)).BeginInit();
             this.SuspendLayout();
             // 
             // lbLogin
@@ -76,6 +81,7 @@ namespace MyStoreWinApp
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(238, 23);
             this.txtUserName.TabIndex = 3;
+            this.txtUserName.Leave += new System.EventHandler(this.txtUserName_Leave);
             // 
             // txtPassword
             // 
@@ -85,6 +91,7 @@ namespace MyStoreWinApp
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(238, 23);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // btnLog
             // 
@@ -111,6 +118,14 @@ namespace MyStoreWinApp
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // errUsername
+            // 
+            this.errUsername.ContainerControl = this;
+            // 
+            // errPassword
+            // 
+            this.errPassword.ContainerControl = this;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -129,6 +144,8 @@ namespace MyStoreWinApp
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errUsername)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPassword)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,5 +160,7 @@ namespace MyStoreWinApp
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLog;
         private System.Windows.Forms.Button btnCancel;
+        private ErrorProvider errUsername;
+        private ErrorProvider errPassword;
     }
 }
