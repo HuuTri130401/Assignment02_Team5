@@ -1,3 +1,5 @@
+using MyStoreWinApp;
+
 namespace SalesWinApp
 {
     internal static class Program
