@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProducts));
             this.lbProductID = new System.Windows.Forms.Label();
             this.lbProductName = new System.Windows.Forms.Label();
             this.lbCategoryID = new System.Windows.Forms.Label();
@@ -315,9 +316,10 @@
             this.Controls.Add(this.lbCategoryID);
             this.Controls.Add(this.lbProductName);
             this.Controls.Add(this.lbProductID);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmProducts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmProducts";
+            this.Text = "Product Manager";
             this.Load += new System.EventHandler(this.frmProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberList)).EndInit();
             this.ResumeLayout(false);

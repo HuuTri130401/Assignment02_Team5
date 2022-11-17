@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMemberDetails));
             this.lbMemberID = new System.Windows.Forms.Label();
             this.lbMemberName = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
@@ -207,6 +208,7 @@
             this.Controls.Add(this.lbEmail);
             this.Controls.Add(this.lbMemberName);
             this.Controls.Add(this.lbMemberID);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmMemberDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
