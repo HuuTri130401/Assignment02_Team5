@@ -238,7 +238,7 @@
             this.txtFind.PlaceholderText = "Seach member";
             this.txtFind.Size = new System.Drawing.Size(185, 23);
             this.txtFind.TabIndex = 79;
-            this.txtFind.Text = "Numbers From";
+            this.txtFind.Text = "Lowest Value";
             // 
             // txtToNum
             // 
@@ -248,7 +248,7 @@
             this.txtToNum.PlaceholderText = "Seach member";
             this.txtToNum.Size = new System.Drawing.Size(185, 23);
             this.txtToNum.TabIndex = 80;
-            this.txtToNum.Text = "Numbers To";
+            this.txtToNum.Text = "Highest Value";
             // 
             // btnFind
             // 
