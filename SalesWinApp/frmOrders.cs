@@ -95,8 +95,29 @@ namespace SalesWinApp
         }
         private void frmOrders_Load(object sender, EventArgs e)
         {
-
+            //
+            btnDelete.Enabled = false;
+            dgvMemberList.CellDoubleClick += dgvOrderList_CellDoubleClick;
         }
+
+        private void dgvOrderList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmOrderDetails frm = new frmOrderDetails
+            {
+                //isAdmin = this.isAdmin,
+                Text = "Update order",
+                InsertOrUpdate = true,
+                OrderInfor = GetOrderObject(),
+                orderRepository = orderRepository
+            };
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                LoadOrdersList();
+                //Set focus order updated
+                source.Position = source.Count - 1;
+            }
+        }
+
 
         private void txtShippedDate_TextChanged(object sender, EventArgs e)
         {
@@ -140,6 +161,28 @@ namespace SalesWinApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Delete an order");
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e) => Close();
+
+        //private void btnUpdate_Click(object sender, EventArgs e)
+        //{
+        //}
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            frmOrderDetails frm = new frmOrderDetails
+            {
+                //isAdmin = this.isAdmin,
+                Text = "Add Order",
+                InsertOrUpdate = false,
+                orderRepository = orderRepository
+            };
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                LoadOrdersList();
+                source.Position = source.Count - 1;
             }
         }
     }
