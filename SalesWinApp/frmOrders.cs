@@ -14,7 +14,7 @@ namespace SalesWinApp
 {
     public partial class frmOrders : Form
     {
-        public bool isAdmin { get; set; }
+        public bool IsAdmin { get; set; }
         IOrderRepository orderRepository = new OrderRepository();
         BindingSource source;
         public frmOrders()
@@ -61,7 +61,7 @@ namespace SalesWinApp
 
                 dgvMemberList.DataSource = null;
                 dgvMemberList.DataSource = source;
-                if (isAdmin == false)
+                if (IsAdmin == false)
                 {
                     if (orders.Count() == 0)
                     {
