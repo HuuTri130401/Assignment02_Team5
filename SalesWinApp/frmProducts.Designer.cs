@@ -240,7 +240,7 @@
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(759, 381);
+            this.btnFind.Location = new System.Drawing.Point(781, 378);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(94, 29);
             this.btnFind.TabIndex = 81;
@@ -300,8 +300,8 @@
             this.Controls.Add(this.lbCategoryID);
             this.Controls.Add(this.lbProductName);
             this.Controls.Add(this.lbProductID);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmProducts";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product Manager";
