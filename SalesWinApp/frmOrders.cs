@@ -1,5 +1,6 @@
 ﻿using BusinessObject.Models;
 using DataAcces.Repository;
+using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,8 +16,14 @@ namespace SalesWinApp
     public partial class frmOrders : Form
     {
         public bool IsAdmin { get; set; }
+        public IOrderRepository OrderRepository { get; set; }
+        public Order OrderInfor { get; set; }
+
         IOrderRepository orderRepository = new OrderRepository();
         BindingSource source;
+        IOrderDetailRepository orderDRepository = new OrderDetailRepository();
+        IMemberRepository memberRepository = new MemberRepository();
+        //Create a data source
         public frmOrders()
         {
             InitializeComponent();
@@ -217,12 +224,27 @@ namespace SalesWinApp
                 MessageBox.Show(ex.Message, "Load Order List");
             }
 
-
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             FindOrderBetween();
         }
+        private void btnOrderDDetail_Click(object sender, EventArgs e)
+        {
+            //frmOrderDDetails frm = new frmOrderDDetails
+            //{
+            //    isAdmin = this.IsAdmin,
+            //    Text = "Add Order Detail",
+            //    InsertOrUpdate = false,
+            //    OrderId = OrderInfor.OrderId,
+            //    OrderDetailRepository = orderDRepository
+            //};
+            //frm.ShowDialog();
+            frmOrderDDetails frm = new frmOrderDDetails();
+            frm.ShowDialog();
+        }
+
+
     }
 }

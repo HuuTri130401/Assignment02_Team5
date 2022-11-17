@@ -49,6 +49,8 @@
             this.txtShippedDate = new System.Windows.Forms.DateTimePicker();
             this.txtFromNum = new System.Windows.Forms.DateTimePicker();
             this.txtToNum = new System.Windows.Forms.DateTimePicker();
+            this.btnOrderDDetail = new System.Windows.Forms.Button();
+            this.sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -252,12 +254,25 @@
             this.txtToNum.Name = "txtToNum";
             this.txtToNum.Size = new System.Drawing.Size(219, 23);
             this.txtToNum.TabIndex = 108;
+            // btnOrderDDetail
+            // 
+            this.btnOrderDDetail.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnOrderDDetail.Location = new System.Drawing.Point(918, 294);
+            this.btnOrderDDetail.Name = "btnOrderDDetail";
+            this.btnOrderDDetail.Size = new System.Drawing.Size(94, 40);
+            this.btnOrderDDetail.TabIndex = 104;
+            this.btnOrderDDetail.Text = "&OrderDetail";
+            this.btnOrderDDetail.UseVisualStyleBackColor = false;
+            this.btnOrderDDetail.Click += new System.EventHandler(this.btnOrderDDetail_Click);
             // 
             // frmOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(907, 427);
+            this.ClientSize = new System.Drawing.Size(1037, 569);
+            this.Controls.Add(this.btnOrderDDetail);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtToNum);
             this.Controls.Add(this.txtFromNum);
             this.Controls.Add(this.txtShippedDate);
@@ -312,5 +327,7 @@
         private DateTimePicker txtShippedDate;
         private DateTimePicker txtFromNum;
         private DateTimePicker txtToNum;
+        private Button btnOrderDDetail;
+        private Microsoft.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
     }
 }
