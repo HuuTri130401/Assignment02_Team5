@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMemberDetails));
             this.lbMemberID = new System.Windows.Forms.Label();
             this.lbMemberName = new System.Windows.Forms.Label();
@@ -43,6 +44,14 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.cboCountry = new System.Windows.Forms.ComboBox();
+            this.errMemberID = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errMemberName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errEmail = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errPassword = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errMemberID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMemberName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errEmail)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPassword)).BeginInit();
             this.SuspendLayout();
             // 
             // lbMemberID
@@ -107,6 +116,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(254, 23);
             this.txtPassword.TabIndex = 7;
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // txtEmail
             // 
@@ -115,6 +125,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(254, 23);
             this.txtEmail.TabIndex = 8;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtMemberName
             // 
@@ -123,6 +134,7 @@
             this.txtMemberName.Name = "txtMemberName";
             this.txtMemberName.Size = new System.Drawing.Size(254, 23);
             this.txtMemberName.TabIndex = 9;
+            this.txtMemberName.Leave += new System.EventHandler(this.txtMemberName_Leave);
             // 
             // txtMemberID
             // 
@@ -131,6 +143,7 @@
             this.txtMemberID.Name = "txtMemberID";
             this.txtMemberID.Size = new System.Drawing.Size(254, 23);
             this.txtMemberID.TabIndex = 10;
+            this.txtMemberID.Leave += new System.EventHandler(this.txtMemberID_Leave);
             // 
             // cboCity
             // 
@@ -189,6 +202,22 @@
             this.cboCountry.Size = new System.Drawing.Size(254, 23);
             this.cboCountry.TabIndex = 15;
             // 
+            // errMemberID
+            // 
+            this.errMemberID.ContainerControl = this;
+            // 
+            // errMemberName
+            // 
+            this.errMemberName.ContainerControl = this;
+            // 
+            // errEmail
+            // 
+            this.errEmail.ContainerControl = this;
+            // 
+            // errPassword
+            // 
+            this.errPassword.ContainerControl = this;
+            // 
             // frmMemberDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -214,6 +243,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Member Details";
             this.Load += new System.EventHandler(this.frmMemberDetails_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errMemberID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errMemberName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errEmail)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPassword)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +268,9 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ComboBox cboCountry;
+        private ErrorProvider errMemberID;
+        private ErrorProvider errMemberName;
+        private ErrorProvider errEmail;
+        private ErrorProvider errPassword;
     }
 }
