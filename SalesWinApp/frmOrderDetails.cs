@@ -18,8 +18,8 @@ namespace SalesWinApp
         {
             InitializeComponent();
         }
-        public bool isAdmin { get; set; }
-        public IOrderRepository orderRepository { get; set; }
+        public bool IsAdmin { get; set; }
+        public IOrderRepository OrderRepo { get; set; }
         public bool InsertOrUpdate { get; set; } //False?Insert:Update
         public Order OrderInfor { get; set; }
         private void frmOrderDetails_Load(object sender, EventArgs e)
@@ -29,10 +29,10 @@ namespace SalesWinApp
             {
                 //Show order to perform updating
                 txtOrderID.Text = OrderInfor.OrderId.ToString();
-                txtOrderDate.Text = DateTime.Now.ToString();
+                dtOrderDate.Text = DateTime.Now.ToString();
                 txtMemberID.Text = OrderInfor.MemberId.ToString();
-                txtRequiredDate.Text = OrderInfor.RequiredDate.ToString();
-                txtShippedDate.Text = OrderInfor.ShippedDate.ToString();
+                dtRequiredDate.Text = OrderInfor.RequiredDate.ToString();
+                dtShippedDate.Text = OrderInfor.ShippedDate.ToString();
                 txtFreight.Text = OrderInfor.Freight.ToString();
             }
         }
@@ -44,20 +44,20 @@ namespace SalesWinApp
                 var order = new Order
                 {
                     OrderId = int.Parse(txtOrderID.Text),
-                    OrderDate = DateTime.Parse(txtOrderDate.Text),
-                    ShippedDate = DateTime.Parse(txtShippedDate.Text),
-                    RequiredDate = DateTime.Parse(txtRequiredDate.Text),
+                    OrderDate = DateTime.Parse(dtOrderDate.Text),
+                    ShippedDate = DateTime.Parse(dtShippedDate.Text),
+                    RequiredDate = DateTime.Parse(dtRequiredDate.Text),
                     Freight = decimal.Parse(txtFreight.Text),
                     MemberId = int.Parse(txtMemberID.Text),
 
                 };
                 if (InsertOrUpdate == false)
                 {
-                    orderRepository.InsertOrder(order);
+                    OrderRepo.InsertOrder(order);
                 }
                 else
                 {
-                    orderRepository.UpdateOrder(order);
+                    OrderRepo.UpdateOrder(order);
                 }
             }
             catch (Exception ex)

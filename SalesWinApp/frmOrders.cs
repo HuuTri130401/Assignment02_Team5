@@ -108,7 +108,7 @@ namespace SalesWinApp
                 Text = "Update order",
                 InsertOrUpdate = true,
                 OrderInfor = GetOrderObject(),
-                orderRepository = orderRepository
+                OrderRepo = orderRepository
             };
             if (frm.ShowDialog() == DialogResult.OK)
             {
@@ -177,7 +177,7 @@ namespace SalesWinApp
                 //isAdmin = this.isAdmin,
                 Text = "Add Order",
                 InsertOrUpdate = false,
-                orderRepository = orderRepository
+                OrderRepo = orderRepository
             };
             if (frm.ShowDialog() == DialogResult.OK)
             {
