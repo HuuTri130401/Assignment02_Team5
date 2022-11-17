@@ -7,15 +7,15 @@ namespace SalesWinApp
             InitializeComponent();
         }
 
-        //private void btnFormOrder_Click(object sender, EventArgs e)
-        //{
-        //    frmOrders frmOrders = new frmOrders();
-        //    frmOrders.ShowDialog();
-        //}
-
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmOrders_Click(object sender, EventArgs e)
+        {
+            frmOrders frmOrders = new frmOrders();
+            frmOrders.ShowDialog();
         }
     }
 }
