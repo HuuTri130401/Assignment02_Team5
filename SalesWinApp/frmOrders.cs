@@ -156,15 +156,19 @@ namespace SalesWinApp
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
+            var dialogResult = MessageBox.Show("Do you want to delete this order?","Delete Confirmation",MessageBoxButtons.YesNo);
+            if (dialogResult==DialogResult.Yes)
             {
-                var order = GetOrderObject();
-                orderRepository.DeleteOrder(order.OrderId);
-                LoadOrdersList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Delete an order");
+                try
+                {
+                    var order = GetOrderObject();
+                    orderRepository.DeleteOrder(order.OrderId);
+                    LoadOrdersList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Delete an order");
+                } 
             }
         }
 

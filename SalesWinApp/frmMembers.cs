@@ -46,15 +46,19 @@ namespace SalesWinApp
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
+            var dialogResult = MessageBox.Show("Do you want to delete this member?","Delete Confirmation",MessageBoxButtons.YesNo);
+            if (dialogResult==DialogResult.Yes)
             {
-                var member = GetMemberObject();
-                _memberRepository.DeleteMember(member.MemberId);
-                LoadMemberList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Delete a member");
+                try
+                {
+                    var member = GetMemberObject();
+                    _memberRepository.DeleteMember(member.MemberId);
+                    LoadMemberList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Delete a member");
+                } 
             }
         }
 

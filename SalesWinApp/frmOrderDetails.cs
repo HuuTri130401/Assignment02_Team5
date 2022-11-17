@@ -39,31 +39,35 @@ namespace SalesWinApp
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            var dialogResult = MessageBox.Show("Save changes?","Save Confirmation",MessageBoxButtons.YesNo);
+            if (dialogResult==DialogResult.Yes)
             {
-                
-                var order = new Order
+                try
                 {
-                    OrderId = int.Parse(txtOrderID.Text),
-                    OrderDate = DateTime.Parse(dtOrderDate.Text),
-                    ShippedDate = DateTime.Parse(dtShippedDate.Text),
-                    RequiredDate = DateTime.Parse(dtRequiredDate.Text),
-                    Freight = decimal.Parse(txtFreight.Text),
-                    MemberId = int.Parse(txtMemberID.Text),
 
-                };
-                if (InsertOrUpdate == false)
-                {
-                    OrderRepo.InsertOrder(order);
+                    var order = new Order
+                    {
+                        OrderId = int.Parse(txtOrderID.Text),
+                        OrderDate = DateTime.Parse(dtOrderDate.Text),
+                        ShippedDate = DateTime.Parse(dtShippedDate.Text),
+                        RequiredDate = DateTime.Parse(dtRequiredDate.Text),
+                        Freight = decimal.Parse(txtFreight.Text),
+                        MemberId = int.Parse(txtMemberID.Text),
+
+                    };
+                    if (InsertOrUpdate == false)
+                    {
+                        OrderRepo.InsertOrder(order);
+                    }
+                    else
+                    {
+                        OrderRepo.UpdateOrder(order);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    OrderRepo.UpdateOrder(order);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, InsertOrUpdate == false ? "Add a new order" : "Update a order detail");
+                    MessageBox.Show(ex.Message, InsertOrUpdate == false ? "Add a new order" : "Update a order detail");
+                } 
             }
         }
 

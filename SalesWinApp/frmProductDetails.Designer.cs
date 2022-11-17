@@ -29,6 +29,7 @@ namespace SalesWinApp
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductDetails));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtProductID = new System.Windows.Forms.TextBox();
@@ -190,6 +191,7 @@ namespace SalesWinApp
             this.Controls.Add(this.lbCategoryID);
             this.Controls.Add(this.lbProductName);
             this.Controls.Add(this.lbProductID);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmProductDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmProductDetails";

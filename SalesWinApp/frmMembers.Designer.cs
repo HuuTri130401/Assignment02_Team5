@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMembers));
             this.cboSearchCountry = new System.Windows.Forms.ComboBox();
             this.cboSearchCity = new System.Windows.Forms.ComboBox();
             this.lbMemberID = new System.Windows.Forms.Label();
@@ -334,6 +335,7 @@
             this.Controls.Add(this.lbMemberName);
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.lbMemberID);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmMembers";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
