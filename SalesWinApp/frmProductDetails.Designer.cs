@@ -29,6 +29,7 @@ namespace SalesWinApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductDetails));
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -44,6 +45,18 @@ namespace SalesWinApp
             this.lbProductID = new System.Windows.Forms.Label();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
             this.txtUnitsInStock = new System.Windows.Forms.TextBox();
+            this.errProductID = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errProductName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errCategoryID = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errWeight = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errUnitPrice = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errUnitsInStock = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errProductID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errProductName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errCategoryID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errWeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errUnitPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errUnitsInStock)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -77,6 +90,7 @@ namespace SalesWinApp
             this.txtProductID.Name = "txtProductID";
             this.txtProductID.Size = new System.Drawing.Size(254, 23);
             this.txtProductID.TabIndex = 25;
+            this.txtProductID.Leave += new System.EventHandler(this.txtProductID_Leave);
             // 
             // txtProductName
             // 
@@ -85,6 +99,7 @@ namespace SalesWinApp
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(254, 23);
             this.txtProductName.TabIndex = 24;
+            this.txtProductName.Leave += new System.EventHandler(this.txtProductName_Leave);
             // 
             // txtCategoryID
             // 
@@ -93,6 +108,7 @@ namespace SalesWinApp
             this.txtCategoryID.Name = "txtCategoryID";
             this.txtCategoryID.Size = new System.Drawing.Size(254, 23);
             this.txtCategoryID.TabIndex = 23;
+            this.txtCategoryID.Leave += new System.EventHandler(this.txtCategoryID_Leave);
             // 
             // txtWeight
             // 
@@ -101,6 +117,7 @@ namespace SalesWinApp
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.Size = new System.Drawing.Size(254, 23);
             this.txtWeight.TabIndex = 22;
+            this.txtWeight.Leave += new System.EventHandler(this.txtWeight_Leave);
             // 
             // lbUnitPrice
             // 
@@ -163,6 +180,7 @@ namespace SalesWinApp
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.Size = new System.Drawing.Size(254, 23);
             this.txtUnitPrice.TabIndex = 29;
+            this.txtUnitPrice.Leave += new System.EventHandler(this.txtUnitPrice_Leave);
             // 
             // txtUnitsInStock
             // 
@@ -171,6 +189,31 @@ namespace SalesWinApp
             this.txtUnitsInStock.Name = "txtUnitsInStock";
             this.txtUnitsInStock.Size = new System.Drawing.Size(254, 23);
             this.txtUnitsInStock.TabIndex = 30;
+            this.txtUnitsInStock.Leave += new System.EventHandler(this.txtUnitsInStock_Leave);
+            // 
+            // errProductID
+            // 
+            this.errProductID.ContainerControl = this;
+            // 
+            // errProductName
+            // 
+            this.errProductName.ContainerControl = this;
+            // 
+            // errCategoryID
+            // 
+            this.errCategoryID.ContainerControl = this;
+            // 
+            // errWeight
+            // 
+            this.errWeight.ContainerControl = this;
+            // 
+            // errUnitPrice
+            // 
+            this.errUnitPrice.ContainerControl = this;
+            // 
+            // errUnitsInStock
+            // 
+            this.errUnitsInStock.ContainerControl = this;
             // 
             // frmProductDetails
             // 
@@ -196,6 +239,12 @@ namespace SalesWinApp
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmProductDetails";
             this.Load += new System.EventHandler(this.frmProductDetails_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errProductID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errProductName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errCategoryID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errWeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errUnitPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errUnitsInStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,5 +265,11 @@ namespace SalesWinApp
         private System.Windows.Forms.Label lbProductID;
         private System.Windows.Forms.TextBox txtUnitPrice;
         private System.Windows.Forms.TextBox txtUnitsInStock;
+        private ErrorProvider errProductID;
+        private ErrorProvider errProductName;
+        private ErrorProvider errCategoryID;
+        private ErrorProvider errWeight;
+        private ErrorProvider errUnitPrice;
+        private ErrorProvider errUnitsInStock;
     }
 }

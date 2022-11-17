@@ -75,6 +75,48 @@ namespace SalesWinApp
         }
 
         private void btnCancel_Click(object sender, EventArgs e) => Close();
-       
+
+        private void ThrowsErrorProvider(ErrorProvider error,string message,TextBox control)
+        {
+            if (string.IsNullOrEmpty( control.Text))
+            {
+                control.Focus();
+                error.SetError(control, message);
+            }
+            else
+            {
+                error.Clear();
+            }
+        }
+        
+        private void txtProductID_Leave(object sender, EventArgs e)
+        {
+            ThrowsErrorProvider(errProductID, "Blank product ID not allowed", txtProductID);
+        }
+
+        private void txtProductName_Leave(object sender, EventArgs e)
+        {
+            ThrowsErrorProvider(errProductName, "Blank product name not allowed", txtProductName);
+        }
+
+        private void txtCategoryID_Leave(object sender, EventArgs e)
+        {
+            ThrowsErrorProvider(errCategoryID, "Blank category ID not allowed", txtCategoryID);
+        }
+
+        private void txtWeight_Leave(object sender, EventArgs e)
+        {
+            ThrowsErrorProvider(errWeight, "Blank weight not allowed", txtWeight);
+        }
+
+        private void txtUnitPrice_Leave(object sender, EventArgs e)
+        {
+            ThrowsErrorProvider(errUnitPrice, "Blank unit price not allowed", txtUnitPrice);
+        }
+
+        private void txtUnitsInStock_Leave(object sender, EventArgs e)
+        {
+            ThrowsErrorProvider(errUnitsInStock, "Blank unit in stock not allowed", txtUnitsInStock);
+        }
     }
 }
