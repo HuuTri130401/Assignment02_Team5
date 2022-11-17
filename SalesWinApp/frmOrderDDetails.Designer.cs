@@ -199,6 +199,7 @@ namespace SalesWinApp
             this.Controls.Add(this.lbOrderID);
             this.Controls.Add(this.lbProductID);
             this.Name = "frmOrderDDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmOrderDDetails";
             this.Load += new System.EventHandler(this.frmOrderDDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberList)).EndInit();
