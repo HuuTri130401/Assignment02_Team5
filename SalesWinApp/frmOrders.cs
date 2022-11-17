@@ -70,23 +70,21 @@ namespace SalesWinApp
                     }
                     else
                     {
-                        //btnDelete.Enabled = false;
-                        btnDelete.Enabled = true;
-
+                        btnDelete.Enabled = false;
                     }
                 }
-                //else
-                //{
-                //    if (orders.Count() == 0)
-                //    {
-                //        ClearText();
-                //        btnDelete.Enabled = false;
-                //    }
-                //    else
-                //    {
-                //        btnDelete.Enabled = true;
-                //    }
-                //}
+                else
+                {
+                    if (orders.Count() == 0)
+                    {
+                        ClearText();
+                        btnDelete.Enabled = false;
+                    }
+                    else
+                    {
+                        btnDelete.Enabled = true;
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -104,7 +102,6 @@ namespace SalesWinApp
         {
             frmOrderDetails frm = new frmOrderDetails
             {
-                //isAdmin = this.isAdmin,
                 Text = "Update order",
                 InsertOrUpdate = true,
                 OrderInfor = GetOrderObject(),
