@@ -42,32 +42,36 @@ namespace SalesWinApp
             }
         }
         private void btnSave_Click(object sender, EventArgs e)
-        { 
-            try
+        {
+            var dialogResult = MessageBox.Show("Save changes?","Save Confirmation",MessageBoxButtons.YesNo);
+            if (dialogResult==DialogResult.Yes)
             {
-                var product = new Product
+                try
                 {
-                    ProductId = int.Parse(txtProductID.Text),
-                    ProductName = txtProductName.Text,
-                    Weight = txtWeight.Text,
-                    UnitPrice = int.Parse(txtUnitPrice.Text),
-                    UnitsInStock = int.Parse(txtUnitsInStock.Text),
-                    CategoryId = int.Parse(txtCategoryID.Text),
+                    var product = new Product
+                    {
+                        ProductId = int.Parse(txtProductID.Text),
+                        ProductName = txtProductName.Text,
+                        Weight = txtWeight.Text,
+                        UnitPrice = int.Parse(txtUnitPrice.Text),
+                        UnitsInStock = int.Parse(txtUnitsInStock.Text),
+                        CategoryId = int.Parse(txtCategoryID.Text),
 
-                };
-                if (InsertOrUpdate == false)
-                {
-                    ProductRepository.InsertProduct(product);
+                    };
+                    if (InsertOrUpdate == false)
+                    {
+                        ProductRepository.InsertProduct(product);
+                    }
+                    else
+                    {
+                        ProductRepository.UpdateProduct(product);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    ProductRepository.UpdateProduct(product);
-                }
+                    MessageBox.Show(ex.Message, InsertOrUpdate == false ? "Add a new Product" : "Update a Product");
+                }  
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, InsertOrUpdate == false ? "Add a new Product" : "Update a Product");
-            } 
         }
 
         private void btnCancel_Click(object sender, EventArgs e) => Close();

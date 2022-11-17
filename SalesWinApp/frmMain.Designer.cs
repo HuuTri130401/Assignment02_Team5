@@ -67,7 +67,7 @@
             // 
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
             this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.productToolStripMenuItem.Text = "Product";
+            this.productToolStripMenuItem.Text = "&Product";
             this.productToolStripMenuItem.Click += new System.EventHandler(this.productToolStripMenuItem_Click);
             // 
             // orderToolStripMenuItem
@@ -79,7 +79,7 @@
             // 
             this.orderToolStripMenuItem1.Name = "orderToolStripMenuItem1";
             this.orderToolStripMenuItem1.Size = new System.Drawing.Size(49, 20);
-            this.orderToolStripMenuItem1.Text = "Order";
+            this.orderToolStripMenuItem1.Text = "&Order";
             this.orderToolStripMenuItem1.Click += new System.EventHandler(this.orderToolStripMenuItem1_Click);
             // 
             // frmMain

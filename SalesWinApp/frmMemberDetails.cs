@@ -26,29 +26,33 @@ namespace SalesWinApp
         
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try
+            var dialogResult = MessageBox.Show("Save changes?","Save Confirmation",MessageBoxButtons.YesNo);
+            if (dialogResult==DialogResult.Yes)
             {
-                var member = new Member
+                try
                 {
-                    MemberId = int.Parse(txtMemberID.Text),
-                    CompanyName = txtMemberName.Text,
-                    City = cboCity.Text,
-                    Email = txtEmail.Text,
-                    Country = cboCountry.Text,
-                    Password = txtPassword.Text,
-                };
-                if (InsertOrUpdate == false)
-                {
-                    MemberRepository.InsertMember(member);
+                    var member = new Member
+                    {
+                        MemberId = int.Parse(txtMemberID.Text),
+                        CompanyName = txtMemberName.Text,
+                        City = cboCity.Text,
+                        Email = txtEmail.Text,
+                        Country = cboCountry.Text,
+                        Password = txtPassword.Text,
+                    };
+                    if (InsertOrUpdate == false)
+                    {
+                        MemberRepository.InsertMember(member);
+                    }
+                    else
+                    {
+                        MemberRepository.UpdateMember(member);
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MemberRepository.UpdateMember(member);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, InsertOrUpdate == false ? "Add a new Member" : "Update a Member");
+                    MessageBox.Show(ex.Message, InsertOrUpdate == false ? "Add a new Member" : "Update a Member");
+                } 
             }
         }
 

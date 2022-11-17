@@ -181,15 +181,19 @@ namespace SalesWinApp
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            try
+            var dialogResult = MessageBox.Show("Do you want to delete this product?","Delete Confirmation",MessageBoxButtons.YesNo);
+            if (dialogResult==DialogResult.Yes)
             {
-                var member = GetProductObject();
-                productRepository.DeleteProduct(member.ProductId);
-                LoadMemberList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Delete a product");
+                try
+                {
+                    var member = GetProductObject();
+                    productRepository.DeleteProduct(member.ProductId);
+                    LoadMemberList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Delete a product");
+                } 
             }
         }
 
