@@ -28,20 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtToNum = new System.Windows.Forms.TextBox();
             this.lbReport = new System.Windows.Forms.Label();
-            this.txtFromNum = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtFreight = new System.Windows.Forms.TextBox();
-            this.txtShippedDate = new System.Windows.Forms.TextBox();
             this.dgvMemberList = new System.Windows.Forms.DataGridView();
             this.btnLoad = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.txtOrderDate = new System.Windows.Forms.TextBox();
             this.txtMemberID = new System.Windows.Forms.TextBox();
             this.txtOrderID = new System.Windows.Forms.TextBox();
-            this.txtRequiredDate = new System.Windows.Forms.TextBox();
             this.lbRequiredDate = new System.Windows.Forms.Label();
             this.lbFreight = new System.Windows.Forms.Label();
             this.lbCountry = new System.Windows.Forms.Label();
@@ -49,17 +44,13 @@
             this.lbOrderDate = new System.Windows.Forms.Label();
             this.lbOrderID = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.txtOrderDate = new System.Windows.Forms.DateTimePicker();
+            this.txtRequiredDate = new System.Windows.Forms.DateTimePicker();
+            this.txtShippedDate = new System.Windows.Forms.DateTimePicker();
+            this.txtFromNum = new System.Windows.Forms.DateTimePicker();
+            this.txtToNum = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberList)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtToNum
-            // 
-            this.txtToNum.Location = new System.Drawing.Point(633, 245);
-            this.txtToNum.Name = "txtToNum";
-            this.txtToNum.PlaceholderText = "Seach member";
-            this.txtToNum.Size = new System.Drawing.Size(250, 27);
-            this.txtToNum.TabIndex = 101;
-            this.txtToNum.Text = "To Date";
             // 
             // lbReport
             // 
@@ -70,15 +61,6 @@
             this.lbReport.TabIndex = 100;
             this.lbReport.Text = "Sales Report";
             // 
-            // txtFromNum
-            // 
-            this.txtFromNum.Location = new System.Drawing.Point(206, 243);
-            this.txtFromNum.Name = "txtFromNum";
-            this.txtFromNum.PlaceholderText = "Seach member";
-            this.txtFromNum.Size = new System.Drawing.Size(219, 27);
-            this.txtFromNum.TabIndex = 99;
-            this.txtFromNum.Text = "From Date";
-            // 
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -88,6 +70,7 @@
             this.btnSearch.TabIndex = 98;
             this.btnSearch.Text = "&Search";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtFreight
             // 
@@ -95,14 +78,6 @@
             this.txtFreight.Name = "txtFreight";
             this.txtFreight.Size = new System.Drawing.Size(250, 27);
             this.txtFreight.TabIndex = 97;
-            // 
-            // txtShippedDate
-            // 
-            this.txtShippedDate.Location = new System.Drawing.Point(633, 90);
-            this.txtShippedDate.Name = "txtShippedDate";
-            this.txtShippedDate.Size = new System.Drawing.Size(250, 27);
-            this.txtShippedDate.TabIndex = 96;
-            this.txtShippedDate.TextChanged += new System.EventHandler(this.txtShippedDate_TextChanged);
             // 
             // dgvMemberList
             // 
@@ -120,7 +95,7 @@
             // btnLoad
             // 
             this.btnLoad.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnLoad.Location = new System.Drawing.Point(206, 186);
+            this.btnLoad.Location = new System.Drawing.Point(224, 186);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(219, 38);
             this.btnLoad.TabIndex = 94;
@@ -150,34 +125,19 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // txtOrderDate
-            // 
-            this.txtOrderDate.Location = new System.Drawing.Point(206, 139);
-            this.txtOrderDate.Name = "txtOrderDate";
-            this.txtOrderDate.ReadOnly = true;
-            this.txtOrderDate.Size = new System.Drawing.Size(219, 27);
-            this.txtOrderDate.TabIndex = 91;
-            // 
             // txtMemberID
             // 
             this.txtMemberID.Location = new System.Drawing.Point(206, 93);
             this.txtMemberID.Name = "txtMemberID";
-            this.txtMemberID.Size = new System.Drawing.Size(219, 27);
+            this.txtMemberID.Size = new System.Drawing.Size(262, 27);
             this.txtMemberID.TabIndex = 90;
             // 
             // txtOrderID
             // 
             this.txtOrderID.Location = new System.Drawing.Point(206, 40);
             this.txtOrderID.Name = "txtOrderID";
-            this.txtOrderID.Size = new System.Drawing.Size(219, 27);
+            this.txtOrderID.Size = new System.Drawing.Size(262, 27);
             this.txtOrderID.TabIndex = 89;
-            // 
-            // txtRequiredDate
-            // 
-            this.txtRequiredDate.Location = new System.Drawing.Point(633, 37);
-            this.txtRequiredDate.Name = "txtRequiredDate";
-            this.txtRequiredDate.Size = new System.Drawing.Size(250, 27);
-            this.txtRequiredDate.TabIndex = 88;
             // 
             // lbRequiredDate
             // 
@@ -209,7 +169,7 @@
             // lbMemberID
             // 
             this.lbMemberID.AutoSize = true;
-            this.lbMemberID.Location = new System.Drawing.Point(95, 93);
+            this.lbMemberID.Location = new System.Drawing.Point(94, 96);
             this.lbMemberID.Name = "lbMemberID";
             this.lbMemberID.Size = new System.Drawing.Size(84, 20);
             this.lbMemberID.TabIndex = 84;
@@ -244,26 +204,61 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // txtOrderDate
+            // 
+            this.txtOrderDate.Location = new System.Drawing.Point(206, 134);
+            this.txtOrderDate.Name = "txtOrderDate";
+            this.txtOrderDate.Size = new System.Drawing.Size(262, 27);
+            this.txtOrderDate.TabIndex = 104;
+            // 
+            // txtRequiredDate
+            // 
+            this.txtRequiredDate.Location = new System.Drawing.Point(633, 40);
+            this.txtRequiredDate.Name = "txtRequiredDate";
+            this.txtRequiredDate.Size = new System.Drawing.Size(250, 27);
+            this.txtRequiredDate.TabIndex = 105;
+            // 
+            // txtShippedDate
+            // 
+            this.txtShippedDate.Location = new System.Drawing.Point(633, 93);
+            this.txtShippedDate.Name = "txtShippedDate";
+            this.txtShippedDate.Size = new System.Drawing.Size(250, 27);
+            this.txtShippedDate.TabIndex = 106;
+            // 
+            // txtFromNum
+            // 
+            this.txtFromNum.Location = new System.Drawing.Point(206, 245);
+            this.txtFromNum.Name = "txtFromNum";
+            this.txtFromNum.Size = new System.Drawing.Size(262, 27);
+            this.txtFromNum.TabIndex = 107;
+            // 
+            // txtToNum
+            // 
+            this.txtToNum.Location = new System.Drawing.Point(633, 247);
+            this.txtToNum.Name = "txtToNum";
+            this.txtToNum.Size = new System.Drawing.Size(250, 27);
+            this.txtToNum.TabIndex = 108;
+            // 
             // frmOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 569);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtToNum);
-            this.Controls.Add(this.lbReport);
             this.Controls.Add(this.txtFromNum);
+            this.Controls.Add(this.txtShippedDate);
+            this.Controls.Add(this.txtRequiredDate);
+            this.Controls.Add(this.txtOrderDate);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.lbReport);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtFreight);
-            this.Controls.Add(this.txtShippedDate);
             this.Controls.Add(this.dgvMemberList);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.txtOrderDate);
             this.Controls.Add(this.txtMemberID);
             this.Controls.Add(this.txtOrderID);
-            this.Controls.Add(this.txtRequiredDate);
             this.Controls.Add(this.lbRequiredDate);
             this.Controls.Add(this.lbFreight);
             this.Controls.Add(this.lbCountry);
@@ -281,21 +276,15 @@
         }
 
         #endregion
-
-        private TextBox txtToNum;
         private Label lbReport;
-        private TextBox txtFromNum;
         private Button btnSearch;
         private TextBox txtFreight;
-        private TextBox txtShippedDate;
         private DataGridView dgvMemberList;
         private Button btnLoad;
         private Button btnNew;
         private Button btnDelete;
-        private TextBox txtOrderDate;
         private TextBox txtMemberID;
         private TextBox txtOrderID;
-        private TextBox txtRequiredDate;
         private Label lbRequiredDate;
         private Label lbFreight;
         private Label lbCountry;
@@ -303,5 +292,10 @@
         private Label lbOrderDate;
         private Label lbOrderID;
         private Button btnClose;
+        private DateTimePicker txtOrderDate;
+        private DateTimePicker txtRequiredDate;
+        private DateTimePicker txtShippedDate;
+        private DateTimePicker txtFromNum;
+        private DateTimePicker txtToNum;
     }
 }

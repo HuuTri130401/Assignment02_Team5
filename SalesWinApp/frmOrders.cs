@@ -185,5 +185,47 @@ namespace SalesWinApp
                 source.Position = source.Count - 1;
             }
         }
+
+        private void FindOrderBetween()
+        {
+            List<Order> findList = new List<Order>();
+            try
+            {
+                findList = orderRepository.GetOrderByOrderdDate(DateTime.Parse(txtFromNum.Text), DateTime.Parse(txtToNum.Text));
+                if (findList.Count != 0)
+                {
+                    source = new BindingSource();
+                    source.DataSource = findList.OrderByDescending(order => order.OrderDate);
+                    txtFreight.DataBindings.Clear();
+                    txtMemberID.DataBindings.Clear();
+                    txtOrderDate.DataBindings.Clear();
+                    txtOrderID.DataBindings.Clear();
+                    txtRequiredDate.DataBindings.Clear();
+                    txtShippedDate.DataBindings.Clear();
+
+                    txtFreight.DataBindings.Add("Text", source, "Freight");
+                    txtOrderDate.DataBindings.Add("Text", source, "OrderDate");
+                    txtShippedDate.DataBindings.Add("Text", source, "ShippedDate");
+                    txtRequiredDate.DataBindings.Add("Text", source, "RequiredDate");
+                    txtOrderID.DataBindings.Add("Text", source, "OrderId");
+                    txtMemberID.DataBindings.Add("Text", source, "MemberId");
+
+                    dgvMemberList.DataSource = null;
+                    dgvMemberList.DataSource = source;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Load Order List");
+            }
+
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            FindOrderBetween();
+        }
     }
 }

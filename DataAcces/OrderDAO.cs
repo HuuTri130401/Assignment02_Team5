@@ -129,28 +129,28 @@ namespace DataAcces
                 throw new Exception(e.Message);
             }
         }
-        //public List<Order> Filter(DateTime a, DateTime b)
-        //{
-        //    var members = new List<Order>();
-        //    var fil = new List<Order>();
-        //    try
-        //    {
-        //        using var context = new Assignment02PrnContext();
-        //        members = context.Orders.ToList();
-        //        for (int i = 0; i < members.Count(); i++)
-        //        {
-        //            if ((members[i].OrderDate >= a && members[i].OrderDate <= b) || (members[i].ShippedDate >= a && members[i].ShippedDate <= b))
-        //            {
-        //                fil.Add(members[i]);
-        //            }
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw new Exception(e.Message);
-        //    }
-        //    return fil;
-        //}
+        public List<Order> FindListMiddleOrder(DateTime a, DateTime b)
+        {
+            var order = new List<Order>();
+            var fil = new List<Order>();
+            try
+            {
+                using var context = new Assignment02PrnContext();
+                order = context.Orders.ToList();
+                for (int i = 0; i < order.Count(); i++)
+                {
+                    if ((order[i].OrderDate >= a && order[i].OrderDate <= b))
+                    {
+                        fil.Add(order[i]);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            return fil;
+        }
 
     }//end class OrderDAO
 }//end namespace DataAccess

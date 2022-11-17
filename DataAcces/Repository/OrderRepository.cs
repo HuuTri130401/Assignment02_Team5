@@ -14,11 +14,6 @@ namespace DataAcces.Repository
         public void InsertOrder(Order order) => OrderDAO.Instance.AddNew(order);
         public void DeleteOrder(int orderID) => OrderDAO.Instance.Remove(orderID);
         public void UpdateOrder(Order order) => OrderDAO.Instance.Update(order);
-
-        public List<Order> GetOrderByOrderdDate(DateTime dateTime1, DateTime dateTime2)
-        {
-            throw new NotImplementedException();
-        }
-        //public List<Order> GetOrderByOrderdDate(DateTime dateTime1, DateTime dateTime2) => OrderDAO.Instance.Filter(dateTime1, dateTime2);
+        public List<Order> GetOrderByOrderdDate(DateTime dateTime1, DateTime dateTime2) => OrderDAO.Instance.FindListMiddleOrder(dateTime1, dateTime2);
     }
 }
