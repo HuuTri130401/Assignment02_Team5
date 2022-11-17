@@ -77,6 +77,17 @@ namespace SalesWinApp
             }
             else ActiveChildForm("frmOrders");
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (!CheckExistForm("frmMembers"))
+            {
+                frmMembers frm = new frmMembers() { IsAdmin = this.isAdmin };
+
+                frm.Show();
+            }
+            else ActiveChildForm("frmMembers");
+        }
     }
 
     //private void orderToolStripMenuItem_Click(object sender, EventArgs e)
