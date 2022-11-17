@@ -1,4 +1,5 @@
-﻿using DataAcces.Repository;
+﻿using BusinessObject.Models;
+using DataAcces.Repository;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,14 +35,14 @@ namespace SalesWinApp
 
         public void LoadOrdersList()
         {
-            var members = orderRepository.GetOrders();
+            var orders = orderRepository.GetOrders();
 
             try
             {
                 //The BindingSource component is designed to simplify
                 //the process of binding controls to an underlying data source
                 source = new BindingSource();
-                source.DataSource = members.OrderByDescending(member => member.OrderDate);
+                source.DataSource = orders.OrderByDescending(order => order.OrderDate);
 
                 txtMemberID.DataBindings.Clear();
                 txtOrderDate.DataBindings.Clear();
@@ -62,28 +63,30 @@ namespace SalesWinApp
                 dgvMemberList.DataSource = source;
                 if (isAdmin == false)
                 {
-                    if (members.Count() == 0)
+                    if (orders.Count() == 0)
                     {
                         ClearText();
                         btnDelete.Enabled = false;
                     }
                     else
                     {
-                        btnDelete.Enabled = false;
-                    }
-                }
-                else
-                {
-                    if (members.Count() == 0)
-                    {
-                        ClearText();
-                        btnDelete.Enabled = false;
-                    }
-                    else
-                    {
+                        //btnDelete.Enabled = false;
                         btnDelete.Enabled = true;
+
                     }
                 }
+                //else
+                //{
+                //    if (orders.Count() == 0)
+                //    {
+                //        ClearText();
+                //        btnDelete.Enabled = false;
+                //    }
+                //    else
+                //    {
+                //        btnDelete.Enabled = true;
+                //    }
+                //}
             }
             catch (Exception ex)
             {
@@ -92,8 +95,29 @@ namespace SalesWinApp
         }
         private void frmOrders_Load(object sender, EventArgs e)
         {
-
+            //
+            btnDelete.Enabled = false;
+            dgvMemberList.CellDoubleClick += dgvOrderList_CellDoubleClick;
         }
+
+        private void dgvOrderList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmOrderDetails frm = new frmOrderDetails
+            {
+                //isAdmin = this.isAdmin,
+                Text = "Update order",
+                InsertOrUpdate = true,
+                OrderInfor = GetOrderObject(),
+                orderRepository = orderRepository
+            };
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                LoadOrdersList();
+                //Set focus order updated
+                source.Position = source.Count - 1;
+            }
+        }
+
 
         private void txtShippedDate_TextChanged(object sender, EventArgs e)
         {
@@ -103,6 +127,63 @@ namespace SalesWinApp
         private void btnLoad_Click(object sender, EventArgs e)
         {
             LoadOrdersList();
+        }
+
+        private Order? GetOrderObject()
+        {
+            Order? order = null;
+            try
+            {
+                order = new Order
+                {
+                    OrderId = int.Parse(txtOrderID.Text),
+                    OrderDate = DateTime.Parse(txtOrderDate.Text),
+                    ShippedDate = DateTime.Parse(txtShippedDate.Text),
+                    RequiredDate = DateTime.Parse(txtRequiredDate.Text),
+                    Freight = decimal.Parse(txtFreight.Text),
+                    MemberId = int.Parse(txtMemberID.Text),
+                };
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Get order");
+            }
+            return order;
+        }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var order = GetOrderObject();
+                orderRepository.DeleteOrder(order.OrderId);
+                LoadOrdersList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Delete an order");
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e) => Close();
+
+        //private void btnUpdate_Click(object sender, EventArgs e)
+        //{
+        //}
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            frmOrderDetails frm = new frmOrderDetails
+            {
+                //isAdmin = this.isAdmin,
+                Text = "Add Order",
+                InsertOrUpdate = false,
+                orderRepository = orderRepository
+            };
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                LoadOrdersList();
+                source.Position = source.Count - 1;
+            }
         }
     }
 }

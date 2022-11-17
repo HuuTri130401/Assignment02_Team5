@@ -48,14 +48,13 @@
             this.lbMemberID = new System.Windows.Forms.Label();
             this.lbOrderDate = new System.Windows.Forms.Label();
             this.lbOrderID = new System.Windows.Forms.Label();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberList)).BeginInit();
             this.SuspendLayout();
             // 
             // txtToNum
             // 
-            this.txtToNum.Location = new System.Drawing.Point(633, 242);
+            this.txtToNum.Location = new System.Drawing.Point(633, 245);
             this.txtToNum.Name = "txtToNum";
             this.txtToNum.PlaceholderText = "Seach member";
             this.txtToNum.Size = new System.Drawing.Size(250, 27);
@@ -65,7 +64,7 @@
             // lbReport
             // 
             this.lbReport.AutoSize = true;
-            this.lbReport.Location = new System.Drawing.Point(95, 249);
+            this.lbReport.Location = new System.Drawing.Point(86, 252);
             this.lbReport.Name = "lbReport";
             this.lbReport.Size = new System.Drawing.Size(92, 20);
             this.lbReport.TabIndex = 100;
@@ -73,7 +72,7 @@
             // 
             // txtFromNum
             // 
-            this.txtFromNum.Location = new System.Drawing.Point(206, 245);
+            this.txtFromNum.Location = new System.Drawing.Point(206, 243);
             this.txtFromNum.Name = "txtFromNum";
             this.txtFromNum.PlaceholderText = "Seach member";
             this.txtFromNum.Size = new System.Drawing.Size(219, 27);
@@ -82,12 +81,13 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(918, 240);
+            this.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnSearch.Location = new System.Drawing.Point(918, 238);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 29);
+            this.btnSearch.Size = new System.Drawing.Size(94, 40);
             this.btnSearch.TabIndex = 98;
             this.btnSearch.Text = "&Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.UseVisualStyleBackColor = false;
             // 
             // txtFreight
             // 
@@ -106,6 +106,7 @@
             // 
             // dgvMemberList
             // 
+            this.dgvMemberList.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dgvMemberList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMemberList.Location = new System.Drawing.Point(50, 294);
             this.dgvMemberList.Name = "dgvMemberList";
@@ -118,31 +119,36 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(206, 195);
+            this.btnLoad.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnLoad.Location = new System.Drawing.Point(206, 186);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(94, 29);
+            this.btnLoad.Size = new System.Drawing.Size(219, 38);
             this.btnLoad.TabIndex = 94;
             this.btnLoad.Text = "&Load";
-            this.btnLoad.UseVisualStyleBackColor = true;
+            this.btnLoad.UseVisualStyleBackColor = false;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(633, 195);
+            this.btnNew.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnNew.Location = new System.Drawing.Point(633, 186);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(94, 29);
+            this.btnNew.Size = new System.Drawing.Size(111, 38);
             this.btnNew.TabIndex = 93;
             this.btnNew.Text = "&New";
-            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(789, 195);
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnDelete.Location = new System.Drawing.Point(782, 186);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(94, 29);
+            this.btnDelete.Size = new System.Drawing.Size(101, 38);
             this.btnDelete.TabIndex = 92;
             this.btnDelete.Text = "&Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // txtOrderDate
             // 
@@ -227,23 +233,16 @@
             this.lbOrderID.TabIndex = 82;
             this.lbOrderID.Text = "Order ID";
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(331, 195);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(94, 29);
-            this.btnUpdate.TabIndex = 102;
-            this.btnUpdate.Text = "&Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.Color.RosyBrown;
             this.btnClose.Location = new System.Drawing.Point(918, 495);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(94, 29);
             this.btnClose.TabIndex = 103;
             this.btnClose.Text = "&Close";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmOrders
             // 
@@ -251,7 +250,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 569);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.txtToNum);
             this.Controls.Add(this.lbReport);
             this.Controls.Add(this.txtFromNum);
@@ -273,6 +271,7 @@
             this.Controls.Add(this.lbOrderDate);
             this.Controls.Add(this.lbOrderID);
             this.Name = "frmOrders";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmOrders";
             this.Load += new System.EventHandler(this.frmOrders_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberList)).EndInit();
@@ -303,7 +302,6 @@
         private Label lbMemberID;
         private Label lbOrderDate;
         private Label lbOrderID;
-        private Button btnUpdate;
         private Button btnClose;
     }
 }
