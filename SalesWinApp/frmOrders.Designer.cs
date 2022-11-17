@@ -49,6 +49,8 @@
             this.lbOrderDate = new System.Windows.Forms.Label();
             this.lbOrderID = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnOrderDDetail = new System.Windows.Forms.Button();
+            this.sqlCommandBuilder1 = new Microsoft.Data.SqlClient.SqlCommandBuilder();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMemberList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -244,11 +246,23 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnOrderDDetail
+            // 
+            this.btnOrderDDetail.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnOrderDDetail.Location = new System.Drawing.Point(918, 294);
+            this.btnOrderDDetail.Name = "btnOrderDDetail";
+            this.btnOrderDDetail.Size = new System.Drawing.Size(94, 40);
+            this.btnOrderDDetail.TabIndex = 104;
+            this.btnOrderDDetail.Text = "&OrderDetail";
+            this.btnOrderDDetail.UseVisualStyleBackColor = false;
+            this.btnOrderDDetail.Click += new System.EventHandler(this.btnOrderDDetail_Click);
+            // 
             // frmOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 569);
+            this.Controls.Add(this.btnOrderDDetail);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtToNum);
             this.Controls.Add(this.lbReport);
@@ -303,5 +317,7 @@
         private Label lbOrderDate;
         private Label lbOrderID;
         private Button btnClose;
+        private Button btnOrderDDetail;
+        private Microsoft.Data.SqlClient.SqlCommandBuilder sqlCommandBuilder1;
     }
 }
